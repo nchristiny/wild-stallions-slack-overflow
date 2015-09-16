@@ -28,4 +28,5 @@ end
 vote_id = 1
 100.times do
   Vote.create!(voteable_id: vote_id, voteable_type: voteable_stuff.sample.class)
+  vote_id += 1
 end
