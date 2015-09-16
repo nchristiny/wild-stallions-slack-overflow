@@ -7,3 +7,5 @@ Harrison
 Nic
 Nick
 Chris
+
+We just added some directories!
