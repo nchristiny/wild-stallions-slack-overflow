@@ -7,8 +7,9 @@ get '/questions/new' do
 end
 
 post '/questions' do
-	@question = Question.new()
-  redirect to '/questions/:id'
+	user = User.find_by(id: session[:user_id])
+	@question = Question.new(user_id: user.id, content: params[:question_content])
+  redirect to '/questions/#{@question.id}'
 end
 
 get '/questions/:id' do
