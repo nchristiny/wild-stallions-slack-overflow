@@ -1,0 +1,13 @@
+<h1>Showing questions relating to <%= @query %></h1>
+<div class="container">
+  <ol>
+    <% @questions.each do |question| %>
+      <li>
+        <h4><a href="/questions/<%= question.id %>"><%= question.title %></a><h4>
+        <br>
+        <!-- <%= question.content %> -->
+      </li>
+  </ol>
+    <% end %>
+
+</div>
