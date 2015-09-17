@@ -2,9 +2,13 @@
   <h1>SNACK OVERFLOW:</h1>
   <h2>MAKE A NEW STUPID QUESTION</h2>
 
-  <form method='post' action='/questions'>
+  <form class='new_question' method='post' action='/questions'>
 <!--     this should submit a new stupid question - saving it to the database, via controller -->
-    <input name='new_question' type='text' placeholder='Type ur stupid question here'>
+    <input class='question_content' name='new_question' type='text' placeholder='Type ur stupid question here'>
+    <input class='topic_input' name='topic1' type='text' placeholder='topic'>
+    <input class='topic_input' name='topic2' type='text' placeholder='topic'>
+    <input class='topic_input' name='topic3' type='text' placeholder='topic'>
+    <input class='topic_input' name='topic4' type='text' placeholder='topic'>
     <button>SUBMIT UR STUPID QUESTION</button>
   </form>
 

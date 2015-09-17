@@ -1,3 +1,4 @@
 class Topic < ActiveRecord::Base
-  has_many :questions, through: :question_topic
+  has_many :tags
+  has_many :questions, through: :tags
 end
