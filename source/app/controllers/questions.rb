@@ -10,10 +10,10 @@ end
 post '/questions' do
 	@question = Question.create(params[:question])
 	p "*******************"
-	p params[:topic]
+	p params[:name]
 	p "*******************"
 	params[:topic].each do |topic_id|
-	  Tag.create(question_id: @question.id, topic_id: topic_id.to_i)
+	  Tag.create(question_id: @question.id, topic_id: topic_id.to_i, name: params[:name] )
 	end
   redirect to "/questions/#{@question.id}"
 end
@@ -28,14 +28,13 @@ get '/questions/search/:query' do
   searched_question_id = tag.question_id
   @questions = Question.where({ id: searched_question_id })
   erb :'/questions/query'
->>>>>>> master
 end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  tags = []
-  tags << Tag.find(:all, question_id: @question.id)
-  topics = []
+  # tags = []
+  # tags << Tag.find_by(:all, question_id: question.id)
+  # topics = []
   
   erb :'/questions/show'
 end
