@@ -13,7 +13,6 @@
       <h6> (tag it)</h6>
       <% Topic.all.each do |topic| %>
        <label>
-       <input type='hidden' name="name[]" value=<%"topic.name"%>/>
        <input type='checkbox' name="topic[]" value="<%=topic.id %>"/> <%=topic.name%> </label>
        
       <% end %>

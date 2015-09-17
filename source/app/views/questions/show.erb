@@ -7,6 +7,10 @@
 
   <%= @question.content %>
 
+  <% @tags.each do |tag| %>
+   <p> <%= Topic.find_by(id: tag.topic_id).name %> </p>
+   <% end %>
+
   <br>
   <br>
 

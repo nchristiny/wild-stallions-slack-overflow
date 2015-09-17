@@ -39,11 +39,7 @@ vote_id = 1
   vote_id += 1
 end
 
-tag_topic_id = 1
-tag_question_id = 1
+  
 15.times do
-  Tag.create!(name: Faker::Company.buzzword, topic_id: tag_topic_id,
-  question_id: tag_question_id)
-  tag_topic_id += 1
-  tag_question_id += 1
+  Topic.create!(name: Faker::Company.buzzword)
 end
