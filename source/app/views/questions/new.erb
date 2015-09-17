@@ -1,24 +1,22 @@
-<div class="container">
-
-  <form class='new_question' method='post' action='/questions'>
-<!--     this should submit a new stupid question - saving it to the database, via controller -->
-    <input class='question_content' name='new_question' type='text' placeholder='Type ur stupid question here'>
-    <input class='topic_input' name='topic1' type='text' placeholder='topic'>
-    <input class='topic_input' name='topic2' type='text' placeholder='topic'>
-    <input class='topic_input' name='topic3' type='text' placeholder='topic'>
-    <input class='topic_input' name='topic4' type='text' placeholder='topic'>
-    <button>SUBMIT UR STUPID QUESTION</button>
-
-
-
+<br>
 <% if !session[:user_id].nil? %>
   <div class="container">
 
 
-    <form method='post' action='/questions'>
-  <!--     this should submit a new stupid question - saving it to the database, via controller -->
-      <input name='new_question' type='text' placeholder='Type ur stupid question here'>
-      <button>SUBMIT UR STUPID QUESTION</button>
+    <form method='post' action='/questions'/>
+      <h5> so you have a question...</h5>
+      <input type='hidden' name='question[user_id]' value= <%"session[:user_id]"%>/>
+      <input class='question_title' name='question[title]' type='text' placeholder='title your question'/>
+      <input class='question_content' name='question[content]' type='text' placeholder='your question'/>
+
+     <!--  <label><input type="checkbox" name="checkbox" value="value">Text</label> -->
+      <h6> (tag it)</h6>
+      <% Topic.all.each do |topic| %>
+       <label>
+       <input type='checkbox' name="topic[]" value="<%=topic.id %>"/> <%=topic.name%> </label>
+       
+      <% end %>
+      <input type='submit' value="ask" />
     </form>
 
   </div>
