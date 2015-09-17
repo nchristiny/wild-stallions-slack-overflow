@@ -16,5 +16,13 @@
 
 </div>
 
-<a href="/users/new"> Sign Up </a>
-<a href="/sessions/login"> Login </a>
+<!--
+<a href="/sessions/logout">Logout</a> -->
+
+<% if !session[:user_id].nil? %>
+  <a href="/sessions/logout">Logout</a>
+  <a href="/users/<%= session[:user_id] %>">Profile</a>
+<% else %>
+  <a href="/users/new"> Sign Up </a>
+  <a href="/sessions/login"> Login </a>
+<% end %>
