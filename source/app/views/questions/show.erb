@@ -6,11 +6,23 @@
   <h2><%= @question.title %></h2>
 
   <%= @question.content %>
+
+  <br>
+  <br>
+
+  <% Answer.all.each do |answer| %>
+    <% if answer.question_id == @question.id %>
+      <%= answer.content %>
+    <% end %>
+  <% end %>
+
+
   <form method='post' action='/questions'>
 <!--     this should submit a new comment -->
 <!-- Yeah, it should but it fucking DOESN'T>  -->
 
     <input name='new_question' type='text' placeholder='Type ur stupid comment here'>
+
     <button>SUBMIT UR SNACK COMMENT</button>
   </form>
 
