@@ -7,6 +7,7 @@ get '/questions/new' do
 end
 
 post '/questions' do
+	@question = Question.new()
   redirect to '/questions/:id'
 end
 
