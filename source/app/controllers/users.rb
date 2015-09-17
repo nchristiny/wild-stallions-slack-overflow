@@ -2,11 +2,8 @@ get '/users/new' do
   erb :"/users/new"
 end
 
-post '/users/new' do
-  @user = User.new(name: user[:name], email: user[:email], password: user[:password])
-  p @user.id
-  p params
-  p "****************************************************************"
+post '/users' do
+  @user = User.new(params[:user])
   if @user.save
     redirect "/users/#{@user.id}"
   else
@@ -14,6 +11,6 @@ post '/users/new' do
   end
 end
 
-get 'users/:id' do
-  "It worked!"
+get '/users/:id' do
+  erb :"users/show"
 end
