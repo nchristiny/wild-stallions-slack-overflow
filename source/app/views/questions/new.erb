@@ -1,18 +1,20 @@
 <div class="container">
-  <h1>SNACK OVERFLOW:</h1>
-  <h2>MAKE A NEW STUPID QUESTION</h2>
+  <h1>SNACK OVERFLOW</h1>
+  <h2>Make a new Stupid Snack Question!</h2>
   <nav>
     <ul>
-      <li>Snack Questions</li>
-      <li>Snack Topics</li>
-      <li>Random Snack</li>
+      <li><a href="#">Snack Questions</a></li>
+      <li><a href="#">Snack Topics</a></li>
+      <li><a href="#">Random Snack</a></li>
+      <li><a href="/users/new">Sign Up</a></li>
+      <li><a href="/sessions/login">Login</a></li>
     </ul>
   </nav>
 
   <form method='post' action='/questions'>
 <!--     this should submit a new stupid question - saving it to the database, via controller -->
     <input name='new_question' type='text' placeholder='Type ur stupid question here'>
-    <button>SUBMIT UR STUPID QUESTION</button>
+    <button>SUBMIT UR SNACK QUESTION</button>
   </form>
 
 </div>
