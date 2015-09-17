@@ -12,5 +12,13 @@ post '/users' do
 end
 
 get '/users/:id' do
+  @user = User.find(params[:id])
+  @user_questions = @user.questions
+  @user_comments = @user.comments
   erb :"users/show"
+end
+
+get '/users' do
+  @users = User.all
+  erb :"users/users"
 end
