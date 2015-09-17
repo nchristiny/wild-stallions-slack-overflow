@@ -38,3 +38,12 @@ vote_id = 1
   Vote.create!(voteable_id: vote_id, voteable_type: voteable_stuff.sample.class)
   vote_id += 1
 end
+
+tag_topic_id = 1
+tag_question_id = 1
+15.times do
+  Tag.create!(name: Faker::Company.buzzword, topic_id: tag_topic_id,
+  question_id: tag_question_id)
+  tag_topic_id += 1
+  tag_question_id += 1
+end
