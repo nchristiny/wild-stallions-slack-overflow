@@ -16,7 +16,19 @@ post '/questions' do
 	  Tag.create(question_id: @question.id, topic_id: topic_id.to_i)
 	end
   redirect to "/questions/#{@question.id}"
+end
 
+get '/questions/search' do
+  erb :"questions/search"
+end
+
+get '/questions/search/:query' do
+  @query = params[:query]
+  tag = Tag.find_by(name: @query)
+  searched_question_id = tag.question_id
+  @questions = Question.where({ id: searched_question_id })
+  erb :'/questions/query'
+>>>>>>> master
 end
 
 get '/questions/:id' do
@@ -26,4 +38,8 @@ get '/questions/:id' do
   topics = []
   
   erb :'/questions/show'
+end
+
+post '/questions/:query' do
+  redirect "/questions/search/#{params[:params][:query]}"
 end

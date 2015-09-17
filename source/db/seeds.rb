@@ -16,18 +16,34 @@ counter = 1
 end
 
 
-comment_counter_user = 1
-comment_counter_question = 1
+comment_id = 1
 100.times do |x|
-  c = Comment.create!(content: Faker::Hacker.say_something_smart, user_id: comment_counter_user,
-  question_id: comment_counter_question)
-  comment_counter_user += 1
-  comment_counter_question += 1
+  c = Comment.create!(content: Faker::Hacker.say_something_smart, commentable_id: comment_id)
+  comment_id += 1
   voteable_stuff << c
+end
+
+answer_counter_user = 1
+comment_counter_answer = 1
+100.times do |x|
+  a = Answer.create!(content: Faker::Hacker.say_something_smart, user_id: answer_counter_user,
+  question_id: comment_counter_answer)
+  answer_counter_user += 1
+  comment_counter_answer += 1
+  voteable_stuff << a
 end
 
 vote_id = 1
 100.times do
   Vote.create!(voteable_id: vote_id, voteable_type: voteable_stuff.sample.class)
   vote_id += 1
+end
+
+tag_topic_id = 1
+tag_question_id = 1
+15.times do
+  Tag.create!(name: Faker::Company.buzzword, topic_id: tag_topic_id,
+  question_id: tag_question_id)
+  tag_topic_id += 1
+  tag_question_id += 1
 end
