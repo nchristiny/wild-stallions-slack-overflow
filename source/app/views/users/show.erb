@@ -1,1 +1,21 @@
-<h1>User Page</h1>
+<!-- Individual show page for a user.  -->
+<% user_name = @user.name %>
+<h1 class="user-header"><%= user_name %></h1>
+
+<div class="container">
+  <h3 class="user-header"><%= user_name %>'s recent questions</h3>
+  <ol>
+    <% @user_questions.each do |question| %>
+      <li><%= question.content %></li>
+    <% end %>
+  </ol>
+</div>
+
+<div class="container">
+  <h3 class="user-header"><%= user_name %>'s recent comments</h3>
+  <ol>
+    <% @user_comments.each do |comment| %>
+      <li><%= comment.content %></li>
+    <% end %>
+  </ol>
+</div>

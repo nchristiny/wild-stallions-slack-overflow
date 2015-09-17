@@ -1,6 +1,4 @@
 <div class="container">
-  <h1>SNACK OVERFLOW:</h1>
-  <h2>MAKE A NEW STUPID QUESTION</h2>
 
   <form class='new_question' method='post' action='/questions'>
 <!--     this should submit a new stupid question - saving it to the database, via controller -->
@@ -10,6 +8,25 @@
     <input class='topic_input' name='topic3' type='text' placeholder='topic'>
     <input class='topic_input' name='topic4' type='text' placeholder='topic'>
     <button>SUBMIT UR STUPID QUESTION</button>
-  </form>
 
-</div>
+ 
+
+<% if !session[:user_id].nil? %>
+  <div class="container">
+
+
+    <form method='post' action='/questions'>
+  <!--     this should submit a new stupid question - saving it to the database, via controller -->
+      <input name='new_question' type='text' placeholder='Type ur stupid question here'>
+      <button>SUBMIT UR STUPID QUESTION</button>
+    </form>
+
+  </div>
+
+<% else %>
+  <div class="container">
+    <h3>Uh Oh.</h3>
+    <p>It looks like you're trying to ask a question. <a href="/sessions/login">Log in</a> or
+      <a href="/users/new">sign up</a> to ask a question.</p>
+  </div>
+<% end %>
