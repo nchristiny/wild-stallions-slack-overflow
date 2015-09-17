@@ -1,12 +1,15 @@
 <div class="container">
 
-  <h2>Awesome Snack question!</h2>
 
-  <form method='post' action='/questions'>
+
   <h1>SNACK OVERFLOW:</h1>
   <h2><%= @question.title %></h2>
 
   <%= @question.content %>
+
+  <% @tags.each do |tag| %>
+   <p> <%= Topic.find_by(id: tag.topic_id).name %> </p>
+   <% end %>
 
   <br>
   <br>
@@ -21,8 +24,9 @@
   <form method='post' action='/questions'>
 <!--     this should submit a new comment -->
 <!-- Yeah, it should but it fucking DOESN'T>  -->
-    <hr>
-    <input name='new_comment' type='text' placeholder='Type ur stupid comment here'>
+
+    <input name='new_question' type='text' placeholder='Type ur stupid comment here'>
+
     <button>SUBMIT UR SNACK COMMENT</button>
   </form>
 
