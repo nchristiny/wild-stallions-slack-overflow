@@ -8,12 +8,22 @@ get '/questions/new' do
 end
 
 post '/questions' do
-	user = User.find_by(id: session[:user_id])
-	@question = Question.new(user_id: user.id, content: params[:question_content])
-  redirect to '/questions/#{@question.id}'
+	@question = Question.create(params[:question])
+	p "*******************"
+	p params[:topic]
+	p "*******************"
+	params[:topic].each do |topic_id|
+	  Tag.create(question_id: @question.id, topic_id: topic_id.to_i)
+	end
+  redirect to "/questions/#{@question.id}"
+
 end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
+  tags = []
+  tags << Tag.find(:all, question_id: @question.id)
+  topics = []
+  
   erb :'/questions/show'
 end

@@ -6,6 +6,9 @@
   <h2><%= @question.title %></h2>
 
   <%= @question.content %>
+  <% tags.each do |tag| %>
+  
+
   <form method='post' action='/questions'>
 <!--     this should submit a new comment -->
 <!-- Yeah, it should but it fucking DOESN'T>  -->
