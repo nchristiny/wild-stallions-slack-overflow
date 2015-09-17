@@ -9,7 +9,8 @@ end
 
 counter = 1
 100.times do |x|
-  q = Question.create!(content: Faker::Hacker.say_something_smart, user_id: counter)
+  q = Question.create!(content: Faker::Hacker.say_something_smart, title: Faker::Book.title,
+   user_id: counter)
   counter += 1
   voteable_stuff << q
 end
