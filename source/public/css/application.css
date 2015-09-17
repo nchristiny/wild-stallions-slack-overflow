@@ -1,0 +1,53 @@
+.container {
+  margin: 0 auto;
+  width: 720px;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  background-color: #FFFFFF;
+}
+
+nav {
+  margin: 0 auto;
+  width: 720px;
+  text-align: right;
+}
+
+nav img {
+  float:left;
+}
+
+nav li {
+  display: inline-block;
+  padding: 8px;
+  background-color: #9EA3A9;
+
+}
+
+nav li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+nav li:hover {
+  background-color: #F69C55;
+}
+
+nav li a:hover {
+  background-color: #F69C55;
+}
+
+.question {
+  color: #444444;
+
+}
+
+.question a {
+  color: #0077DD;
+
+}
+
+.question a:hover {
+  color: #30A7FC;
+
+}
+
+
