@@ -2,21 +2,13 @@
 
   <h2>QUESTIONS</h2>
 
-  <div class="question">
-    <h2>votes</h2>
-    <a href = "#">Question Title</a>
-    <p>question text</p>
+  <% @questions.each do |question| %>
+    <div class="comment_list">
+      <ul style="list-style: none">
 
-    <h2>votes</h2>
-    <a href = "#">Question Title</a>
-    <p>question text</p>
-
-    <h2>votes</h2>
-    <a href = "#">Question Title</a>
-    <p>question text</p>
-
-    <h2>votes</h2>
-    <a href = "#">Question Title</a>
-    <p>question text</p>
-  </div>
+        <li><a href="/questions/<%= question.id %>"><%= question.title %></a> </li>
+      </ul>
+    </div>
+    <br>
+  <% end %>
 </div>

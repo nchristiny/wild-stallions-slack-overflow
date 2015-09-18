@@ -52,4 +52,10 @@ nav li a:hover {
 
 }
 
-
+.comment_list ul li {
+  text-align: center;
+  border: 1px dotted grey; 
+  width: 50%;
+  margin-left: 23%;
+  margin-bottom: 3px
+}
