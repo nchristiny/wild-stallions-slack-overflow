@@ -29,10 +29,20 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @tags = Tag.all.where({question_id: @question.id})  
+  @tags = Tag.all.where({question_id: @question.id})
   erb :'/questions/show'
 end
 
 post '/questions/:query' do
   redirect "/questions/search/#{params[:params][:query]}"
+end
+
+post '/comments' do
+  @question = Question.find_by(id: params[:question_id])
+  @tags = Tag.all.where({question_id: @question.id})
+  @comment = Comment.create(params[:comment])
+  # p @question
+  # p "*************"
+  # p @comment
+  erb :'/questions/show'
 end

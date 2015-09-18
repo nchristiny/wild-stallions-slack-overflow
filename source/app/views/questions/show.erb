@@ -20,14 +20,22 @@
     <% end %>
   <% end %>
 
+</div>
 
-  <form method='post' action='/questions'>
-<!--     this should submit a new comment -->
-<!-- Yeah, it should but it fucking DOESN'T>  -->
+<div>
+  <% if @comment %>
+  <p> <%= @comment.content %> </p>
+  <% end %>
 
-    <input name='new_question' type='text' placeholder='Type ur stupid comment here'>
+</div>
 
-    <button>SUBMIT UR SNACK COMMENT</button>
+<div class="container">
+  <form method='post' action='/comments'>
+    <input type="hidden" name="question_id" value="<%= @question.id %>" >
+    <input type="hidden" name="comment[commentable_id]" value= "<%= @question.id %>" >
+    <input type="hidden" name="comment[commentable_type]"
+    value= "<%= @question.class %>" >
+    <input type="text" name="comment[content]" placeholder="Make a comment">
+    <input type="submit" value="Make a comment">
   </form>
-
 </div>
