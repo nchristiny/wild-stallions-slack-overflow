@@ -22,20 +22,28 @@
 
 </div>
 
-<div>
-  <% if @comment %>
-  <p> <%= @comment.content %> </p>
-  <% end %>
-
+<div class="comment_list">
+  <ul style="list-style: none">
+    <% if @comment %>
+    <li> <%= @comment.content %> </li>
+    <% end %>
+  </ul>
+</div>
+<div class="comment_list">
+  <ul style="list-style: none">
+    <% @question.comments.all.each do |comment| %>
+      <li><%= comment.content %></li>
+    <% end %>
+  </ul>
 </div>
 
 <div class="container">
-  <form method='post' action='/comments'>
+  <form id='new_comment' method='post' action='/comments'>
     <input type="hidden" name="question_id" value="<%= @question.id %>" >
     <input type="hidden" name="comment[commentable_id]" value= "<%= @question.id %>" >
     <input type="hidden" name="comment[commentable_type]"
     value= "<%= @question.class %>" >
     <input type="text" name="comment[content]" placeholder="Make a comment">
-    <input type="submit" value="Make a comment">
+    <input id="comment_submit" type="submit" value="Make a comment">
   </form>
 </div>

@@ -22,13 +22,14 @@
       <a href="/"><img src="http://i.imgur.com/iXbXUNd.png"></a>
       <% if session[:user_id].nil? %>
         <ul>
-          <li><a href="/questions">Snack Questions</a></li>
+          <li><a href="/">Snack Questions</a></li>
           <li><a href="/topics">Snack Topics</a></li>
           <li><a href="/users/new">Sign Up</a></li>
           <li><a href="/sessions/login">Login</a></li>
         </ul>
       <% else %>
-        <li><a href="/questions">Snack Questions</a></li>
+        <li><a href="/">Snack Questions</a></li>
+        <li><a href="/questions/new">Ask a Question</a></li>
         <li><a href="/topics">Snack Topics</a></li>
         <li><a href="/sessions/logout">Logout</a></li>
       </nav>

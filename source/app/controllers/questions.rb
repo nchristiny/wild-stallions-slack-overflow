@@ -30,6 +30,8 @@ end
 get '/questions/:id' do
   @question = Question.find(params[:id])
   @tags = Tag.all.where({question_id: @question.id})
+  if @comments = Comment.where({commentable_id: @question.id})
+  end
   erb :'/questions/show'
 end
 
@@ -41,8 +43,9 @@ post '/comments' do
   @question = Question.find_by(id: params[:question_id])
   @tags = Tag.all.where({question_id: @question.id})
   @comment = Comment.create(params[:comment])
-  # p @question
-  # p "*************"
-  # p @comment
-  erb :'/questions/show'
+  if request.xhr?
+    @comment.content
+  else
+    erb :'/questions/show'
+  end
 end
